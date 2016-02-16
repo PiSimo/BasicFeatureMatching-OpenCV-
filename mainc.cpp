@@ -68,8 +68,8 @@ int main(int argc,char* argv[]){
 					if(a.inside(rs[t]) || b.inside(rs[t]) || c.inside(rs[t]) || d.inside(rs[t])){
 						conf++;
 					}
-					if(conf == 2){
-						checked.push_back(pnt[t]); //We select only the points near to other (isolated points potentialy wrong 
+					if(conf == 2){ // 2 = number of near points 
+						checked.push_back(pnt[t]); //We select only the points near to other (isolated points are potentially wrong points) 
 						sq.push_back(a);
 						sq.push_back(b);
 						sq.push_back(c);
@@ -106,6 +106,7 @@ int main(int argc,char* argv[]){
 				Rect form(min_x,min_y,(max_x - min_x),(max_y - min_y));
 				rectangle(frame,form.br(),form.tl(),Scalar(0,255,0),1);
 			}
+			/* Uncomment if you want a nice texture on the object */
 			//circle(frame,Point(((max_x - min_x)+min_x),((max_y - min_y)+min_y)),(max_x - min_x),Scalar(0,200,30),1);
 		/*for(int i = 0;i != checked.size() - 4 && checked.size() > 4;i++){
 					line(frame,checked[i],checked[i + 1],Scalar(250,250,250),1);
