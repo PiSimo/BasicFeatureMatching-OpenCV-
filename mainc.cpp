@@ -4,12 +4,20 @@
 using namespace cv;
 using namespace std;
 
+/***
+	Basic object detector based on feature matching with neighbourhood verification
+***/
+
 int main(int argc,char* argv[]){
 	if(argc < 2){
 		cout<<"./out <object>\n";
 		return 0;
 	}
 	VideoCapture cap(-1);
+	 if(!cap.isOpened()){
+	 	cout<<"No connected webcams!\n";
+		return -1;
+	 }
 	Mat frame,des,des1,subj;
 	vector<Mat > as;
 	vector<KeyPoint> vect;
@@ -70,9 +78,9 @@ int main(int argc,char* argv[]){
 					}
 					if(conf == 2){ // 2 = number of near points 
 						checked.push_back(pnt[t]); //We select only the points near to other (isolated points are potentially wrong points) 
-						sq.push_back(a);
-						sq.push_back(b);
-						sq.push_back(c);
+						sq.push_back(a); //All the checked points !
+						sq.push_back(b); 
+						sq.push_back(c); 
 						sq.push_back(d);
 						break;
 					}
@@ -106,9 +114,9 @@ int main(int argc,char* argv[]){
 				Rect form(min_x,min_y,(max_x - min_x),(max_y - min_y));
 				rectangle(frame,form.br(),form.tl(),Scalar(0,255,0),1);
 			}
-			/* Uncomment if you want a nice texture on the object */
-			//circle(frame,Point(((max_x - min_x)+min_x),((max_y - min_y)+min_y)),(max_x - min_x),Scalar(0,200,30),1);
-		/*for(int i = 0;i != checked.size() - 4 && checked.size() > 4;i++){
+/* Uncomment if you want a nice texture on the object */
+		       //circle(frame,Point(((max_x - min_x)+min_x),((max_y - min_y)+min_y)),(max_x - min_x),Scalar(0,200,30),1);
+		       /*for(int i = 0;i != checked.size() - 4 && checked.size() > 4;i++){
 					line(frame,checked[i],checked[i + 1],Scalar(250,250,250),1);
 					line(frame,checked[i],checked[i + 2],Scalar(250,250,250),1);
 					line(frame,checked[i],checked[i + 3],Scalar(250,250,250),1);
