@@ -116,13 +116,8 @@ int main(int argc,char* argv[]){
 			}
 /* Uncomment if you want a nice texture on the object */
 		       //circle(frame,Point(((max_x - min_x)+min_x),((max_y - min_y)+min_y)),(max_x - min_x),Scalar(0,200,30),1);
-		       /*for(int i = 0;i != checked.size() - 4 && checked.size() > 4;i++){
-					line(frame,checked[i],checked[i + 1],Scalar(250,250,250),1);
-					line(frame,checked[i],checked[i + 2],Scalar(250,250,250),1);
-					line(frame,checked[i],checked[i + 3],Scalar(250,250,250),1);
-					line(frame,checked[i],checked[i + 4],Scalar(250,250,250),1);
-
-			}
+		       /*for(int i = 0;i != checked.size() - 4 && checked.size() > 4;i++)for(int l = 1;l != 5;l++)line(frame,checked[i],checked[i + l],Scalar(250,250,250),1);
+	
 			int l = checked.size();
 			if(checked.size() > 4){
 				line(frame,checked[l - 4],checked[l - 3],Scalar(250,250,250),1);
