@@ -1,3 +1,3 @@
 # BasicFeatureMatching-OpenCV-
 
-To compile it: <code>g++ main.cc `pkg-config --cflags --libs opencv` -o out</code>
+To compile on Linux it: <code>g++ main.cc &#96;pkg-config --cflags --libs opencv&#96; -o out</code>
