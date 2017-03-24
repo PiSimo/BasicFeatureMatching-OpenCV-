@@ -24,8 +24,8 @@ int main(int argc,char* argv[]){
 	vector<vector<DMatch> > matches;
 
 
-	Ptr<FeatureDetector> p = FeatureDetector::create("FAST"); //I used FAST because it's really fast ( if you want you can change FAST with ORB)
-	Ptr<DescriptorExtractor> extract = DescriptorExtractor::create("ORB"); //ORB = good perfomance
+	Ptr<FeatureDetector> p = FeatureDetector::create("FAST"); //I've choosen FAST because it's really fast ( if you want you can change FAST with ORB)
+	Ptr<DescriptorExtractor> extract = DescriptorExtractor::create("ORB"); //ORB = good perfomances
 	BFMatcher matcher(NORM_L2);
 
 	int x  = 0;
